@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: colorchanging
+  labels:
+    app: colorchanging
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: colorchanging
+  template:
+    metadata:
+      labels:
+        app: colorchanging
+    spec:
+      containers:
+        - name: colorchanging
+          image: balloncontainer.azurecr.io/balloonpoppinggame:latest
+          imagePullPolicy: Always
+          ports:  # Correct indentation here
+            - containerPort: 80
