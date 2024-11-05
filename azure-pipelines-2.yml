@@ -17,15 +17,15 @@ variables:
   dockerfilePath: '$(Build.SourcesDirectory)/dockerfile'
   tag: '$(Build.BuildId)'
 
-pool:
-name: 'brandy'
+  pool:
+   name:'brandy'
 
 stages:
 - stage: Build
   displayName: Build 
   jobs:
   - job: Build
-    displayName: Build
+    displayName: Build the image
     steps:
     - task: Docker@2
       displayName: Build 
@@ -39,7 +39,7 @@ stages:
   displayName: push 
   jobs:
   - job: push
-    displayName: push
+    displayName: push the image
     steps:
     - task: Docker@2
       displayName: push 
